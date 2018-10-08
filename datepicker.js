@@ -341,7 +341,8 @@ class DatePicker extends Component {
       cancelBtnTestID,
       confirmBtnTestID,
       allowFontScaling,
-      locale
+      locale,
+      children
     } = this.props;
 
     const dateInputStyle = [
@@ -358,15 +359,7 @@ class DatePicker extends Component {
         testID={testID}
       >
         <View style={[Style.dateTouchBody, customStyles.dateTouchBody]}>
-          {
-            !this.props.hideText ?
-              <View style={dateInputStyle}>
-                {this.getTitleElement()}
-              </View>
-            :
-              <View/>
-          }
-          {this._renderIcon()}
+          {children}
           {Platform.OS === 'ios' && <Modal
             transparent={true}
             animationType="none"
